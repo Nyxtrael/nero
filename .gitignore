@@ -1,0 +1,19 @@
+# virtual env
+.venv/
+venv/
+
+# python cache
+__pycache__/
+*.pyc
+
+# modele i ciężkie pliki
+Models/
+models/
+*.onnx
+*.gguf
+
+# lokalne bazy, logi, temp
+*.db
+logs/
+*.log
+.env

@@ -1,0 +1,103 @@
+{
+  "profile": "balanced",	
+  "audio": {
+    "sample_rate": 16000,
+    "frame_duration_ms": 30,
+    "input_device": "default",
+    "output_device": "default",
+    "channels": 1,
+    "block_size": 4800,
+    "min_segment_ms": 700,
+    "segment_mode": "conversation",
+    "segment_modes": {
+      "command": {
+        "min_ms": 1000,
+        "max_ms": 3000
+      },
+      "conversation": {
+        "min_ms": 3000,
+        "max_ms": 10000
+      }
+    }
+  },
+  "vad": {
+    "aggressiveness": 2,
+    "silence_duration_ms": 700,
+    "speech_padding_ms": 200
+  },
+  "asr": {
+    "provider": "openai",
+    "model": "whisper-large-v3-turbo",
+    "language": "pl",
+    "temperature": 0.0,
+    "max_segment_ms": 30000,
+    "max_monthly_seconds": 7200,
+    "local": {
+      "model_path": "E:\\strona\\neuro\\Models\\whisper-large-v3-turbo.safetensors",
+      "device": "cuda",
+      "compute_type": "float16"
+    }
+  },
+  "llm": {
+    "mode": "local",
+    "system_prompt": "",
+    "context_window": 4096,
+    "max_cloud_calls_per_session": 50,
+    "max_cloud_calls_per_minute": 5,
+    "hybrid": {
+      "analysis_length_threshold": 500,
+      "cloud_intents": [
+        "sprawdź w internecie",
+        "sprawdz w internecie",
+        "pogoda",
+        "news",
+        "kurs",
+        "dzisiaj",
+        "jutro"
+      ],
+      "local_intents": [
+        "pauza",
+        "stop",
+        "następny",
+        "next",
+        "otwórz",
+        "otworz"
+      ]
+    },	
+    "local": {
+      "model_path": "E:\\strona\\neuro\\Models\\Nero\\nero-llama.gguf",
+      "n_gpu_layers": -1,
+      "n_ctx": 4096,
+      "temperature": 0.85,
+      "top_p": 0.95,
+      "repeat_penalty": 1.05
+    }
+  },
+  "cloud": {
+    "enabled": true,
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "api_key_env": "OPENAI_API_KEY"
+  },
+  "tts": {
+    "provider": "piper",
+    "voice": "pl_PL-gosia-medium.onnx",
+    "piper": {
+      "model_path": "E:\\strona\\neuro\\Models\\Piper\\pl_PL-gosia-medium.onnx",
+      "speaker": 0
+    },
+    "cloud": {
+      "voice": "alloy"
+    }
+  },
+  "memory": {
+    "database_path": "E:\\strona\\neuro\\memory.db",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "results_limit": 5,
+    "score_threshold": 0.55
+  },
+  "ui": {
+    "enable_tray": true,
+    "avatar_gif": "C:\\Nero\\assets\\nero_avatar.gif"
+  }
+}

@@ -1,0 +1,13 @@
+sounddevice
+webrtcvad
+faster-whisper
+numpy
+pydub
+#llama-cpp-python
+openai
+chromadb
+sentence-transformers
+piper-tts
+pystray
+Pillow
+python-dotenv
